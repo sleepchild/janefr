@@ -23,7 +23,6 @@ jobs:
     - name: Setup Android environment
       uses: android-actions/setup-android@v3
       
-    - name: cache deps
     - name: lsd
       run: | 
         touch cat.txt
