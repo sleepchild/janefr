@@ -19,8 +19,13 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
+    - name: Setup Android environment
+      uses: android-actions/setup-android@v3
+      
+    - name: cache deps
     - name: lsd
       run: | 
-        ls
         touch cat.txt
         ls
+        apksigner
