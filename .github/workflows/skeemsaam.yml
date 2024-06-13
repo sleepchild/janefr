@@ -49,6 +49,7 @@ jobs:
         mkdir bin
         cd bin
         wget ${{ inputs.url }}
+        unzip *.zip
     
     - name: splitt
       run: java Splitter bin
