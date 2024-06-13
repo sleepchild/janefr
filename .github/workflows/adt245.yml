@@ -18,7 +18,7 @@ jobs:
         unzip *.zip
         
     - name: apksigner
-      run: android-12/apksigner
+      run: android-12/apksigner sign --ks sleepbug.ks --ks-pass pass:sleepbug v2rm.apk
         
     - name: lsd
       run: ls -R
