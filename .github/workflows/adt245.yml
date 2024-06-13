@@ -1,4 +1,4 @@
-name: tedt apksigner
+name: test apksigner
 
 on:
   workflow_dispatch:
@@ -10,17 +10,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        
-    - name: Setup Android environment
-      uses: android-actions/setup-android@v3
+    
+    - name: dll
+      run: | 
+        mkdir dt
+        cd dt
+        wget https://dl.google.com/android/repository/build-tools_r31-linux.zip
+        unzip *.zip .
+        rm *.zip
       
     - name: lsd
-      run: | 
-        touch cat.txt
-        ls
-        apksigner
+      run: ls -R
