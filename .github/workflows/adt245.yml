@@ -14,11 +14,11 @@ jobs:
     
     - name: dll
       run: | 
-        mkdir dt
-        cd dt
         wget https://dl.google.com/android/repository/build-tools_r31-linux.zip
-        unzip *.zip -d .
+        unzip *.zip
         
-      
+    - name: apksigner
+      run: android-12/apksigner
+        
     - name: lsd
       run: ls -R
