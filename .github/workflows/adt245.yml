@@ -16,8 +16,8 @@ jobs:
         mkdir dt
         cd dt
         wget https://dl.google.com/android/repository/build-tools_r31-linux.zip
-        unzip *.zip .
-        rm *.zip
+        unzip *.zip ./
+        
       
     - name: lsd
       run: ls -R
