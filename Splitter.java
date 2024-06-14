@@ -10,10 +10,18 @@ import java.io.FileOutputStream;
 public class Splitter{
 
     public static void main(String[] args){
-        new Splitter().split100mb(args[0]);
+        int mbz = 50;
+        if(args.length>1){
+            try{
+                mbz = Integer.parse(args[1]);
+            }catch(Eception e){
+                mbz=50;
+            }
+        }
+        new Splitter().split100mb(args[0], mbz);
     }
 
-    public void split100mb(String filepath){
+    public void split100mb(String filepath, int mbz){
 
         if(filepath==null || filepath.isEmpty()){
             return;
@@ -38,7 +46,7 @@ public class Splitter{
         new File(depo).mkdirs();
         long size = f.length();
         //long mb1 = 1000000;
-        long mb1 = 1024*1024*100;// 100mb
+        long mb1 = 1024*1024*mbz;//1mb* mbz
         int br = 0;
         int dw=0;
 
