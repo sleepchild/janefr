@@ -10,6 +10,11 @@ on:
         type: string 
         required: true
         description: url to download
+      part_size:
+        type: string
+        required: false
+        description: 'parts size'
+        default: '50'
       filename:
         type: string
         required: false
@@ -28,9 +33,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: chk Ip
-      run: |
-        ip address
-        curl ipecho.net/plain; echo
+      run: curl ipecho.net/plain; echo
       continue-on-error: true
     
     - name: set up JDK 8
@@ -49,7 +52,7 @@ jobs:
         wget ${{ inputs.url }}
     
     - name: splitt
-      run: java Splitter bin
+      run: java Splitter bin "${{inputs.part_size}}"
       
     - name: ls dirp
       run: ls -R -lh
