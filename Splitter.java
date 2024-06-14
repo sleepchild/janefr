@@ -13,8 +13,8 @@ public class Splitter{
         int mbz = 50;
         if(args.length>1){
             try{
-                mbz = Integer.parse(args[1]);
-            }catch(Eception e){
+                mbz = Integer.parseInt(args[1]);
+            }catch(Exception e){
                 mbz=50;
             }
         }
