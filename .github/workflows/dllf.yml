@@ -26,6 +26,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: chk Ip
+      run: |
+        ip
+        curl ipecho.net/plain; echo
     
     - name: set up JDK 8
       uses: actions/setup-java@v3
@@ -41,7 +46,6 @@ jobs:
         mkdir bin
         cd bin
         wget ${{ inputs.url }}
-        unzip *.zip
     
     - name: splitt
       run: java Splitter bin
