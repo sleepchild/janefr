@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup repo
+      - name: 🛒 Checkout
         uses: actions/checkout@v4
 
       - name: setup java
@@ -29,8 +29,8 @@ jobs:
           distribution: 'temurin'
 
       - name: echo ip
-        run: curl ipecho.net/plain; echo
-        continue-on-error: false
+        run: curl -s api.infoip.io/ip
+        continue-on-error: true
 
       - name: javac s4
         run: javac S4.java
