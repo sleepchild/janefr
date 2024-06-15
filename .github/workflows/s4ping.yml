@@ -1,0 +1,38 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno then run `deno lint` and `deno test`.
+# For more information see: https://github.com/denoland/setup-deno
+
+name: s4 ping-pong
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: setup java
+        uses: actions/setup-java@v4.2.1
+        with:
+          java-version: 8
+
+      - name: echo ip
+        run: curl ipecho.net/plain; echo
+        continue-on-error: false
+
+      - name: javac s4
+        run: javac S4.java
+
+      - name: run s4
+        run: java S4
