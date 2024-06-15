@@ -23,7 +23,7 @@ public class S4{
             log("running on port: "+xp);
             log("");
             getIpAddr();
-            ss.setSoTimeout(9000);
+            //ss.setSoTimeout(9000);
             Socket cl = ss.accept();
             log("client: "+cl.getInetAddress().getHostAddress());
             OutputStream o = cl.getOutputStream();
