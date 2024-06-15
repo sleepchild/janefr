@@ -1,5 +1,4 @@
 //package senile.rateLimit;
-
 import java.net.ServerSocket;
 import java.io.IOException;
 import java.net.Socket;
@@ -19,11 +18,12 @@ public class S4{
         try
         {
             log("starting server..");
-            ss = new ServerSocket(8808);
+            ss = new ServerSocket(0);
             int xp = ss.getLocalPort();
-            log("running on "+xp);
+            log("running on port: "+xp);
+            log("");
             getIpAddr();
-            //ss.setSoTimeout(9000);
+            ss.setSoTimeout(9000);
             Socket cl = ss.accept();
             log("client: "+cl.getInetAddress().getHostAddress());
             OutputStream o = cl.getOutputStream();
@@ -32,7 +32,6 @@ public class S4{
             o.close();
             //
             cl.close();
-            ss.close();
 
         }
         catch (IOException e){
@@ -43,6 +42,8 @@ public class S4{
 
             }
         }
+        
+        log("done...");
     }
     
     void getIpAddr(){
