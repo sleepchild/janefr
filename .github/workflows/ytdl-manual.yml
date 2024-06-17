@@ -28,8 +28,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ inputs.name }}"
+    - name: setup java 8
+      uses: actions/setup-java@v4
+      with:
+        java-version: 8
+        distribution: 'temurin'
+    - name: build sources
+      run: javac fmpg.java
 
     - name: wget ffmpeg
       run: |
@@ -48,6 +53,9 @@ jobs:
         mkdir out1
         cd out1
         ../youtube-dl ${{inputs.name}}
+        
+    - name: run fmpg
+      run: java fmpg
       
     - name: lsd
       run: ls -lhR
