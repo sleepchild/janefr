@@ -38,8 +38,8 @@ jobs:
 
     - name: get file
       run: |
-        mkdir outp
-        cd outp
+        mkdir out1
+        cd out1
         ../youtube-dl ${{inputs.name}}
       
     - name: lsd
