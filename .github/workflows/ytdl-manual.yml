@@ -37,7 +37,10 @@ jobs:
         chmod 777 ./youtube-dl
 
     - name: get file
-      run: ./youtube-dl -x ${{inputs.name}}
+      run: |
+        mkdir outp
+        cd outp
+        ../youtube-dl ${{inputs.name}}
       
     - name: lsd
       run: ls -lhR
