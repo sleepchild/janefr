@@ -32,10 +32,13 @@ jobs:
       run: echo "Hello ${{ inputs.name }}"
 
     - name: wget ytdlp
-      run: wget https://github.com/ytdl-org/ytdl-nightly/releases/download/2024.06.12/youtube-dl
+      run: |
+        wget https://github.com/ytdl-org/ytdl-nightly/releases/download/2024.06.12/youtube-dl
+        chmod 777 ./youtube-dl
 
     - name: get file
-      run: youtube-dl ${{inputs.name}}
+      run: ./youtube-dl ${{inputs.name}}
+      
     - name: lsd
       run: ls -lhR
 
