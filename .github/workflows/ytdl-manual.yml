@@ -46,14 +46,14 @@ jobs:
 
     - name: wget ytdlp
       run: |
-        wget https://github.com/ytdl-org/ytdl-nightly/releases/download/2024.06.12/youtube-dl
-        chmod 777 ./youtube-dl
+        wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
+        chmod 777 ./yt-dlp_linux
 
     - name: get file
       run: |
         mkdir out1
         cd out1
-        ../youtube-dl ${{inputs.name}}
+        ../yt-dlp_linux -f 136+140  ${{inputs.name}}
         
     - name: run fmpg
       run: java fmpg
