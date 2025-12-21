@@ -64,7 +64,7 @@ jobs:
       uses: svenstaro/upload-release-action@2.11.3
       with:
         asset_ name: splits
-        path: out 
+        file: out 
         repo_token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: ls dirp
