@@ -13,8 +13,8 @@ on:
       part_size:
         type: string
         required: false
-        description: 'parts size (mb) (min:1mb)'
-        default: '50'
+        description: 'parts size (mb) (min:10mb)'
+        default: '100'
       filename:
         type: string
         required: false
