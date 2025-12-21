@@ -10,14 +10,16 @@ import java.io.FileOutputStream;
 public class Splitter{
 
     public static void main(String[] args){
-        int mbz = 50;
+        int mbz = 100;
         if(args.length>1){
             try{
                 mbz = Integer.parseInt(args[1]);
             }catch(Exception e){
-                mbz=50;
+                mbz= 100;
             }
         }
+
+		
         new Splitter().split100mb(args[0], mbz);
     }
 
