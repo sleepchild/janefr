@@ -14,6 +14,7 @@ public class Splitter{
         if(args.length>1){
             try{
                 mbz = Integer.parseInt(args[1]);
+				if(mbz<10){mbz=10;}
             }catch(Exception e){
                 mbz= 100;
             }
