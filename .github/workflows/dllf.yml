@@ -50,7 +50,7 @@ jobs:
     - name: download file
       run: | 
         mkdir bin
-        cd wor
+        cd bin
         wget ${{ inputs.url }}
 
     - name: lsd
