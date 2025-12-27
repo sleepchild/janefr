@@ -49,30 +49,28 @@ jobs:
       
     - name: download file
       run: | 
+        mkdir wor
         mkdir bin
-        cd bin
+        cd wor
         wget ${{ inputs.url }}
 
     - name: lsd
       run: ls -R -lh
-
-    
-        
+ 
     - name: upload raw
       uses: actions/upload-artifact@v4.3.3
       with:
         name: file.zip
-        path: bin
+        path: wor
     
     - name: splitt
-      run: java Splitter bin "${{inputs.part_size}}"
+      run: java Splitter wor "${{inputs.part_size}}"
 
-    - name: Upload to Release Action
-      uses: svenstaro/upload-release-action@2.11.3
-      with:
-        asset_name: splits
-        file: bin/
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload assets to a Release
+      uses: AButler/upload-release-assets@v3.0
+      with: 
+        files: "bin/*"
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: ls dirp
       run: ls -R -lh
