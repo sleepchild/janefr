@@ -49,7 +49,6 @@ jobs:
       
     - name: download file
       run: | 
-        mkdir wor
         mkdir bin
         cd wor
         wget ${{ inputs.url }}
@@ -61,15 +60,15 @@ jobs:
       uses: actions/upload-artifact@v4.3.3
       with:
         name: file.zip
-        path: wor
+        path: bin
     
     - name: splitt
-      run: java Splitter wor "${{inputs.part_size}}"
+      run: java Splitter bin "${{inputs.part_size}}"
 
     - name: Upload assets to a Release
       uses: AButler/upload-release-assets@v3.0
       with: 
-        files: "bin/*"
+        files: "out/*"
         repo-token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: ls dirp
