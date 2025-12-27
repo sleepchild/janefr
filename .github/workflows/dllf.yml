@@ -68,8 +68,8 @@ jobs:
     - name: Upload to Release Action
       uses: svenstaro/upload-release-action@2.11.3
       with:
-        asset_ name: splits
-        file: out 
+        asset_name: splits
+        file: bin/*
         repo_token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: ls dirp
